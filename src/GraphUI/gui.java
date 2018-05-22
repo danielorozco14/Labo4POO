@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package GraphUI;
+import calculadora.Division;
+import calculadora.Resta;
+import calculadora.Suma;
+import calculadora.Multiplicacion;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
