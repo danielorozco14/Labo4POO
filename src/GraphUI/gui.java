@@ -14,39 +14,51 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
  *
  * @author LN710Q
  */
-
 public class gui extends JFrame {
 
     private JTextField caja1, caja2, caja3;
     private JButton resultado, regresar;
+    private JLabel etiqueta,etiqueta1;
+    Menu menu = new Menu();
 
     public gui() {
         super("Calculadora");//SIRVE PARA LLAMAR AL CONSTRUCTOR DE JFRAME
-        Menu menu= new Menu();
         initComponents();//INICIALIZANDO VALORES DE VENTANA
-                
+
         resultado.addActionListener(new ActionListener() {//AÑADE ESCUCHADOR DE EVENTOS DEL BOTON
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 AbstractFactory factory;
-                Menu menu = new Menu();
-                int n=(menu.getSwitch());
 
-                float a = Integer.parseInt(caja1.getText());
-                float b = Integer.parseInt(caja2.getText());
+                int n = (menu.getSwitch());
+                if (n <= 4) {
+                    float a = Integer.parseInt(caja1.getText());
+                    float b = Integer.parseInt(caja2.getText());
 
-                factory = FactoryProducer.getFactory(n);
-                Calculadora calcu = factory.getOperacion(n);
-                String resultado = String.valueOf(calcu.Datos(a, b));//CONVIRTIENDO FLOAT C A STRING
+                    factory = FactoryProducer.getFactory(n);
+                    Calculadora calcu = factory.getOperacion(n);
+                    String resultado = String.valueOf(calcu.Datos(a, b));//CONVIRTIENDO FLOAT C A STRING
+                    caja3.setText(resultado);
 
-                caja3.setText(resultado);
+                } else {
+
+                    int a = Integer.parseInt(caja1.getText());
+
+                    factory = FactoryProducer.getFactory(n);
+                    Calculadora calcu = factory.getOperacion(n);
+
+                    String resultado = String.valueOf(calcu.Binarios(a));
+                    caja3.setText(resultado);
+
+                }
 
             }
         });
@@ -54,7 +66,6 @@ public class gui extends JFrame {
         regresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Menu menu = new Menu();
                 menu.setVisible(true);
                 gui.this.dispose();
             }
@@ -82,21 +93,45 @@ public class gui extends JFrame {
         caja3.setBounds(90, 200, 150, 30);//POSICION EN X, POSICION EN Y, ANCHO DE LA CAJA,ALTO DE LA CAJA
         contain = getContentPane();//EXTRAE EL PANEL QUE CONTIENE JFRAME
 
-        //AGREGANDO BOTON
+        //AGREGANDO BOTON RESULTADO
         resultado = new JButton("Resultado"); //INSTANCIANDO EL BOTON
         resultado.setBounds(90, 150, 150, 30);//POSICION EN X, POSICION EN Y, ANCHO DE LA CAJA,ALTO DE LA CAJA
         contain = getContentPane();   //EXTRAE EL PANEL QUE CONTIENE JFRAME
-
+        // AGREGANDO BOTON REGRESAR
         regresar = new JButton("Regresar");
         regresar.setBounds(190, 300, 125, 30);
         contain = getContentPane();
-
+        
+        //AGREGANDO ETIQUETAS
+        etiqueta= new JLabel("Decimal: ");
+        etiqueta.setBounds(40,25,150,30);
+        contain=getContentPane();
+        
+        etiqueta1=new JLabel("Binario: ");
+        etiqueta1.setBounds(40,180,150,30);
+        
         //AGREGA LOS COMPONENTES A LA VENTANA
-        contain.add(caja1);
-        contain.add(caja2);
-        contain.add(caja3);
-        contain.add(resultado);
-        contain.add(regresar);
+        int n = menu.getSwitch();
+        if (n <= 4) {
+            contain.add(caja1);
+            contain.add(caja2);
+            contain.add(caja3);
+            contain.add(resultado);
+            contain.add(regresar);
+
+        } else {
+            contain.add(etiqueta);
+            contain.add(etiqueta1);
+            contain.add(caja1);
+            contain.add(caja3);
+            contain.add(resultado);
+            contain.add(regresar);
+        }
+//        contain.add(caja1);
+//        contain.add(caja2);
+//        contain.add(caja3);
+//        contain.add(resultado);
+//        contain.add(regresar);
 
         setSize(350, 400); //SE SETEA EL TAMAÑO DE LA VENTANA
 
