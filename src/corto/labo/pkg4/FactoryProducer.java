@@ -11,7 +11,7 @@ import calculadora.FactoryCalculadora;
  */
 public class FactoryProducer {
     
-    public static AbstractFactory getFactory(String type){
+    public static AbstractFactory getFactory(int type){
         return new FactoryCalculadora();       
     }
     

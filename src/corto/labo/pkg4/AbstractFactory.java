@@ -11,6 +11,6 @@ import calculadora.Calculadora;
  */
 public interface AbstractFactory {
     
-   Calculadora getOperacion(String type);
+   Calculadora getOperacion(int type);
     
 }
