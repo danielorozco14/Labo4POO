@@ -17,19 +17,16 @@ public class Binario implements Calculadora {
     }
 
     @Override
-    public double Binarios(double a) {
-        double exp, digito;
-        double binario;
- 
-        exp = 0;
-        binario = 0;
+    public int Binarios(int a) {
+        int r;
+        String b = "";
         while (a != 0) {
-            digito = a % 2;
-            binario = binario + digito * Math.pow(10, exp);
-            exp++;
-            a = a/ 2;
+            r = a % 2;
+            b = r + b;
+            a /= 2;
         }
-        return binario;
+        int bin=Integer.parseInt(b);
+        return bin;
 
     }
 

@@ -25,6 +25,8 @@ public class FactoryCalculadora implements AbstractFactory {
                 return new Multiplicacion();
             case 4:
                 return new Division();
+            case 5:
+                return new Binario();
         }
 
         return null;

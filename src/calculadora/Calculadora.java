@@ -11,4 +11,5 @@ package calculadora;
  */
 public interface Calculadora {
     float Datos(float a, float b);
+    int Binarios(int a);
 }

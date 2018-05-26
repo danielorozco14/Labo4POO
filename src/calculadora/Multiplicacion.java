@@ -17,5 +17,10 @@ public class Multiplicacion implements Calculadora{
         return c;
     }
 
+    @Override
+    public int Binarios(int a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }

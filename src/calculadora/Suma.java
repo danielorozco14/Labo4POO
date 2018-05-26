@@ -17,6 +17,11 @@ public class Suma implements Calculadora {
         return c;
     }
 
+    @Override
+    public int Binarios(int a) {
+        throw new UnsupportedOperationException(); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
 }
