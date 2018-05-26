@@ -6,18 +6,12 @@
 package GraphUI;
 
 import corto.labo.pkg4.AbstractFactory;
-import calculadora.Division;
-import calculadora.Multiplicacion;
-import calculadora.Resta;
-import calculadora.Suma;
-import corto.labo.pkg4.FactoryProducer;
-
 import java.awt.Container;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.text.View;
+
 
 /**
  *
@@ -28,8 +22,16 @@ public class Menu extends JFrame {
     AbstractFactory factory;
 
     private JButton opciones1, opciones2, opciones3, opciones4, salir;
-    private int Switch;
+    private static int Switch;
 
+    public int getSwitch() {
+        return Switch;
+    }
+
+    public void setSwitch(int Switch) {
+        this.Switch = Switch;
+    }
+    
     public void setOpciones1(JButton opciones1) {
         this.opciones1 = opciones1;
     }
@@ -59,26 +61,28 @@ public class Menu extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
-
+                
+                if(ae.getSource().equals(opciones1)){
+                   setSwitch(1);
+                }
                 gui interfaz = new gui();
                 interfaz.setVisible(true);
+                System.out.println(getSwitch());
                 Menu.this.dispose();
-//                if(ae.getSource().equals(opciones1)){
-//                    gui interfaz = new gui();
-//                    interfaz.setVisible(true);
-//                }
-//                factory=FactoryProducer.getFactory(1);
-//                Suma suma=factory.getOperacion();
             }
         });
-
+        
+        
         opciones2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                if(ae.getSource().equals(opciones2)){
+                   setSwitch(2);
+                }
                 gui interfaz = new gui();
                 interfaz.setVisible(true);
-
-                //factory.getOperacion(2);
+                System.out.println(getSwitch());
+                
                 Menu.this.dispose();
             }
         });
@@ -86,10 +90,12 @@ public class Menu extends JFrame {
         opciones3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                if(ae.getSource().equals(opciones3)){
+                   setSwitch(3);
+                }
                 gui interfaz = new gui();
                 interfaz.setVisible(true);
-
-                //factory.getOperacion(3);
+                System.out.println(getSwitch());
                 Menu.this.dispose();
             }
         });
@@ -97,10 +103,12 @@ public class Menu extends JFrame {
         opciones4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                if(ae.getSource().equals(opciones4)){
+                   setSwitch(4);
+                }
                 gui interfaz = new gui();
                 interfaz.setVisible(true);
-
-                // factory.getOperacion(4);
+                System.out.println(getSwitch());
                 Menu.this.dispose();
             }
         });
