@@ -28,14 +28,16 @@ public class gui extends JFrame {
 
     public gui() {
         super("Calculadora");//SIRVE PARA LLAMAR AL CONSTRUCTOR DE JFRAME
+        Menu menu= new Menu();
         initComponents();//INICIALIZANDO VALORES DE VENTANA
-        int n=4;
-        
+                
         resultado.addActionListener(new ActionListener() {//AÑADE ESCUCHADOR DE EVENTOS DEL BOTON
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 AbstractFactory factory;
+                Menu menu = new Menu();
+                int n=(menu.getSwitch());
 
                 float a = Integer.parseInt(caja1.getText());
                 float b = Integer.parseInt(caja2.getText());
