@@ -12,8 +12,8 @@ package calculadora;
 public class Division implements Calculadora{
 
     @Override
-    public int Datos(int a,int b) {
-        int c;
+    public float Datos(float a,float b) {
+        float c;
         c= a/b;
         return c;
     }

@@ -14,16 +14,16 @@ import corto.labo.pkg4.AbstractFactory;
 public class FactoryCalculadora implements AbstractFactory {
 
     @Override
-    public Calculadora getOperacion(String type) {
+    public Calculadora getOperacion(int type) {
 
         switch (type) {
-            case "1":
+            case 1:
                 return new Suma();
-            case "2":
+            case 2:
                 return new Resta();
-            case "3":
+            case 3:
                 return new Multiplicacion();
-            case "4":
+            case 4:
                 return new Division();
         }
 

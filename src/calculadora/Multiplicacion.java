@@ -11,11 +11,11 @@ package calculadora;
  */
 public class Multiplicacion implements Calculadora{
 
-   public int Datos(int a,int b) {
-        int c;
-        c= a * b;
+   public float Datos(float a,float b) {
+        float c;
+        c= a*b;
         return c;
-   }
+    }
 
     
 }

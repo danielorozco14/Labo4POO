@@ -11,8 +11,8 @@ package calculadora;
  */
 public class Resta implements Calculadora {
 
-    public int Datos(int a,int b) {
-        int c;
+    public float Datos(float a,float b) {
+        float c;
         c= a-b;
         return c;
     }

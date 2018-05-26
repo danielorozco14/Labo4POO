@@ -10,5 +10,5 @@ package calculadora;
  * @author LN710Q
  */
 public interface Calculadora {
-    int Datos(int a, int b);
+    float Datos(float a, float b);
 }
