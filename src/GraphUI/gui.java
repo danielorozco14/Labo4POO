@@ -25,13 +25,13 @@ public class gui extends JFrame {
 
     private JTextField caja1, caja2, caja3;
     private JButton resultado, regresar;
-    private JLabel etiqueta,etiqueta1;
+    private JLabel etiqueta, etiqueta1;
     Menu menu = new Menu();
 
     public gui() {
         super("Calculadora");//SIRVE PARA LLAMAR AL CONSTRUCTOR DE JFRAME
         initComponents();//INICIALIZANDO VALORES DE VENTANA
-
+        setLocationRelativeTo(null);
         resultado.addActionListener(new ActionListener() {//AÑADE ESCUCHADOR DE EVENTOS DEL BOTON
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,25 +39,29 @@ public class gui extends JFrame {
                 AbstractFactory factory;
 
                 int n = (menu.getSwitch());
-                if (n <= 4) {
-                    float a = Integer.parseInt(caja1.getText());
-                    float b = Integer.parseInt(caja2.getText());
+                try {
+                    if (n <= 4) {
+                        float a = Integer.parseInt(caja1.getText());
+                        float b = Integer.parseInt(caja2.getText());
 
-                    factory = FactoryProducer.getFactory(n);
-                    Calculadora calcu = factory.getOperacion(n);
-                    String resultado = String.valueOf(calcu.Datos(a, b));//CONVIRTIENDO FLOAT C A STRING
-                    caja3.setText(resultado);
+                        factory = FactoryProducer.getFactory(n);
+                        Calculadora calcu = factory.getOperacion(n);
+                        String resultado = String.valueOf(calcu.Datos(a, b));//CONVIRTIENDO FLOAT C A STRING
+                        caja3.setText(resultado);
 
-                } else {
+                    } else {
 
-                    int a = Integer.parseInt(caja1.getText());
+                        int a = Integer.parseInt(caja1.getText());
 
-                    factory = FactoryProducer.getFactory(n);
-                    Calculadora calcu = factory.getOperacion(n);
+                        factory = FactoryProducer.getFactory(n);
+                        Calculadora calcu = factory.getOperacion(n);
 
-                    String resultado = String.valueOf(calcu.Binarios(a));
-                    caja3.setText(resultado);
+                        String resultado = String.valueOf(calcu.Binarios(a));
+                        caja3.setText(resultado);
 
+                    }
+                } catch (NumberFormatException er) {
+                    System.err.println("---- NO USE NUMEROS MUY GRANDES ----");
                 }
 
             }
@@ -101,15 +105,15 @@ public class gui extends JFrame {
         regresar = new JButton("Regresar");
         regresar.setBounds(190, 300, 125, 30);
         contain = getContentPane();
-        
+
         //AGREGANDO ETIQUETAS
-        etiqueta= new JLabel("Decimal: ");
-        etiqueta.setBounds(40,25,150,30);
-        contain=getContentPane();
-        
-        etiqueta1=new JLabel("Binario: ");
-        etiqueta1.setBounds(40,180,150,30);
-        
+        etiqueta = new JLabel("Decimal: ");
+        etiqueta.setBounds(40, 25, 150, 30);
+        contain = getContentPane();
+
+        etiqueta1 = new JLabel("Binario: ");
+        etiqueta1.setBounds(40, 180, 150, 30);
+
         //AGREGA LOS COMPONENTES A LA VENTANA
         int n = menu.getSwitch();
         if (n <= 4) {
