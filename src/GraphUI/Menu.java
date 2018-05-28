@@ -7,7 +7,6 @@ package GraphUI;
 
 import corto.labo.pkg4.AbstractFactory;
 import java.awt.Container;
-import java.awt.Image;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
@@ -35,7 +34,7 @@ public class Menu extends JFrame {
     
     public Menu() {
         super("Calculadora");
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);//PARA CERRAR TUS VENTANASA
         initialComponents();
         
         opciones1.addActionListener(new ActionListener() {
