@@ -41,8 +41,8 @@ public class gui extends JFrame {
                 int n = (menu.getSwitch());
                 try {
                     if (n <= 4) {
-                        float a = Integer.parseInt(caja1.getText());
-                        float b = Integer.parseInt(caja2.getText());
+                        double a = Double.parseDouble(caja1.getText());
+                        double b = Integer.parseInt(caja2.getText());
 
                         factory = FactoryProducer.getFactory(n);
                         Calculadora calcu = factory.getOperacion(n);
