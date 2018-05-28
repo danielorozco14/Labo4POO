@@ -131,12 +131,6 @@ public class gui extends JFrame {
             contain.add(resultado);
             contain.add(regresar);
         }
-//        contain.add(caja1);
-//        contain.add(caja2);
-//        contain.add(caja3);
-//        contain.add(resultado);
-//        contain.add(regresar);
-
         setSize(350, 400); //SE SETEA EL TAMAÑO DE LA VENTANA
 
     }
