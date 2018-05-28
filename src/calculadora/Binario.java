@@ -12,7 +12,7 @@ package calculadora;
 public class Binario implements Calculadora {
 
     @Override
-    public float Datos(float a, float b) {
+    public double Datos(double a, double b) {
         throw new UnsupportedOperationException(); //To change body of generated methods, choose Tools | Templates.
     }
 

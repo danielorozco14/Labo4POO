@@ -10,6 +10,6 @@ package calculadora;
  * @author LN710Q
  */
 public interface Calculadora {
-    float Datos(float a, float b);
+    double Datos(double a, double b);
     int Binarios(int a);
 }

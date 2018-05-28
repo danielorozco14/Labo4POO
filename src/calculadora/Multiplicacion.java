@@ -11,8 +11,8 @@ package calculadora;
  */
 public class Multiplicacion implements Calculadora{
 
-   public float Datos(float a,float b) {
-        float c;
+    public double Datos(double a,double b) {
+        double c;
         c= a*b;
         return c;
     }
